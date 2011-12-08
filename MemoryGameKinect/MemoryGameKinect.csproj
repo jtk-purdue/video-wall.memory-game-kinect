@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE657850-D827-4C8E-9515-C10B85F7B340}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MemoryGameKinect</RootNamespace>
+    <AssemblyName>MemoryGameKinect</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Kinect.WinForm">
+      <HintPath>.\Coding4Fun.Kinect.WinForm.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Kinect.Wpf">
+      <HintPath>.\Coding4Fun.Kinect.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Research.Kinect, Version=1.0.0.45, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v1.0 Beta2\Assemblies\Microsoft.Research.Kinect.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CardSelect.xaml.cs">
+      <DependentUpon>CardSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreen.xaml.cs">
+      <DependentUpon>GameScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InteropBitmapHelper.cs" />
+    <Compile Include="Screen.cs" />
+    <Page Include="CardSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\card.png" />
+    <Resource Include="Images\Gates\Gates0.png" />
+    <Resource Include="Images\Gates\Gates1.png" />
+    <Resource Include="Images\Gates\Gates10.png" />
+    <Resource Include="Images\Gates\Gates11.png" />
+    <Resource Include="Images\Gates\Gates12.png" />
+    <Resource Include="Images\Gates\Gates13.png" />
+    <Resource Include="Images\Gates\Gates14.png" />
+    <Resource Include="Images\Gates\Gates15.png" />
+    <Resource Include="Images\Gates\Gates2.png" />
+    <Resource Include="Images\Gates\Gates3.png" />
+    <Resource Include="Images\Gates\Gates4.png" />
+    <Resource Include="Images\Gates\Gates5.png" />
+    <Resource Include="Images\Gates\Gates6.png" />
+    <Resource Include="Images\Gates\Gates7.png" />
+    <Resource Include="Images\Gates\Gates8.png" />
+    <Resource Include="Images\Gates\Gates9.png" />
+    <Resource Include="Images\Jobs\Jobs0.png" />
+    <Resource Include="Images\Jobs\Jobs1.png" />
+    <Resource Include="Images\Jobs\Jobs10.png" />
+    <Resource Include="Images\Jobs\Jobs11.png" />
+    <Resource Include="Images\Jobs\Jobs12.png" />
+    <Resource Include="Images\Jobs\Jobs13.png" />
+    <Resource Include="Images\Jobs\Jobs14.png" />
+    <Resource Include="Images\Jobs\Jobs15.png" />
+    <Resource Include="Images\Jobs\Jobs2.png" />
+    <Resource Include="Images\Jobs\Jobs3.png" />
+    <Resource Include="Images\Jobs\Jobs4.png" />
+    <Resource Include="Images\Jobs\Jobs5.png" />
+    <Resource Include="Images\Jobs\Jobs6.png" />
+    <Resource Include="Images\Jobs\Jobs7.png" />
+    <Resource Include="Images\Jobs\Jobs8.png" />
+    <Resource Include="Images\Jobs\Jobs9.png" />
+    <Resource Include="Images\lefthand.png" />
+    <Resource Include="Images\p1hand.png" />
+    <Resource Include="Images\p2hand.png" />
+    <Resource Include="Images\righthand.png" />
+    <Resource Include="Images\Ritchie\Ritchie0.png" />
+    <Resource Include="Images\Ritchie\Ritchie1.png" />
+    <Resource Include="Images\Ritchie\Ritchie10.png" />
+    <Resource Include="Images\Ritchie\Ritchie11.png" />
+    <Resource Include="Images\Ritchie\Ritchie12.png" />
+    <Resource Include="Images\Ritchie\Ritchie13.png" />
+    <Resource Include="Images\Ritchie\Ritchie14.png" />
+    <Resource Include="Images\Ritchie\Ritchie15.png" />
+    <Resource Include="Images\Ritchie\Ritchie2.png" />
+    <Resource Include="Images\Ritchie\Ritchie3.png" />
+    <Resource Include="Images\Ritchie\Ritchie4.png" />
+    <Resource Include="Images\Ritchie\Ritchie5.png" />
+    <Resource Include="Images\Ritchie\Ritchie6.png" />
+    <Resource Include="Images\Ritchie\Ritchie7.png" />
+    <Resource Include="Images\Ritchie\Ritchie8.png" />
+    <Resource Include="Images\Ritchie\ritchie9.png" />
+    <Resource Include="Images\screen.png" />
+    <Resource Include="Images\wood.jpg" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg0.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg1.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg10.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg11.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg12.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg13.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg14.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg15.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg2.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg3.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg4.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg5.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg6.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg7.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg8.png" />
+    <Resource Include="Images\Zuckerburg\Zuckerburg9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\singlePlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\multiplayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Animals\bear.png" />
+    <Resource Include="Images\Animals\cheetah.png" />
+    <Resource Include="Images\Animals\crocodile.png" />
+    <Resource Include="Images\Animals\elephant.png" />
+    <Resource Include="Images\Animals\lion.png" />
+    <Resource Include="Images\Animals\snowleopard.png" />
+    <Resource Include="Images\Animals\tiger.png" />
+    <Resource Include="Images\Animals\zebra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cars\car0.png" />
+    <Resource Include="Images\Cars\car1.png" />
+    <Resource Include="Images\Cars\car2.png" />
+    <Resource Include="Images\Cars\car3.png" />
+    <Resource Include="Images\Cars\car4.png" />
+    <Resource Include="Images\Cars\car5.png" />
+    <Resource Include="Images\Cars\car6.png" />
+    <Resource Include="Images\Cars\car7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Fruits\apple.png" />
+    <Resource Include="Images\Fruits\blueberry.png" />
+    <Resource Include="Images\Fruits\grape.png" />
+    <Resource Include="Images\Fruits\kiwi.png" />
+    <Resource Include="Images\Fruits\orange.png" />
+    <Resource Include="Images\Fruits\passion.png" />
+    <Resource Include="Images\Fruits\strawberry.png" />
+    <Resource Include="Images\Fruits\watermelon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\begin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cardFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Coding4Fun.Kinect.WinForm.dll" />
+    <Resource Include="Images\Spears\Spears0.png" />
+    <Resource Include="Images\Spears\Spears1.png" />
+    <Resource Include="Images\Spears\Spears10.png" />
+    <Resource Include="Images\Spears\Spears11.png" />
+    <Resource Include="Images\Spears\Spears12.png" />
+    <Resource Include="Images\Spears\Spears13.png" />
+    <Resource Include="Images\Spears\Spears14.png" />
+    <Resource Include="Images\Spears\Spears15.png" />
+    <Resource Include="Images\Spears\Spears2.png" />
+    <Resource Include="Images\Spears\Spears3.png" />
+    <Resource Include="Images\Spears\Spears4.png" />
+    <Resource Include="Images\Spears\Spears5.png" />
+    <Resource Include="Images\Spears\Spears6.png" />
+    <Resource Include="Images\Spears\Spears7.png" />
+    <Resource Include="Images\Spears\Spears8.png" />
+    <Resource Include="Images\Spears\Spears9.png" />
+    <Resource Include="Images\RDJ\RDJ0.png" />
+    <Resource Include="Images\RDJ\RDJ1.png" />
+    <Resource Include="Images\RDJ\RDJ10.png" />
+    <Resource Include="Images\RDJ\RDJ11.png" />
+    <Resource Include="Images\RDJ\RDJ12.png" />
+    <Resource Include="Images\RDJ\RDJ13.png" />
+    <Resource Include="Images\RDJ\RDJ14.png" />
+    <Resource Include="Images\RDJ\RDJ15.png" />
+    <Resource Include="Images\RDJ\RDJ2.png" />
+    <Resource Include="Images\RDJ\RDJ3.png" />
+    <Resource Include="Images\RDJ\RDJ4.png" />
+    <Resource Include="Images\RDJ\RDJ5.png" />
+    <Resource Include="Images\RDJ\RDJ6.png" />
+    <Resource Include="Images\RDJ\RDJ7.png" />
+    <Resource Include="Images\RDJ\RDJ8.png" />
+    <Resource Include="Images\RDJ\RDJ9.png" />
+    <Resource Include="Images\Messi\Messi0.png" />
+    <Resource Include="Images\Messi\Messi1.png" />
+    <Resource Include="Images\Messi\Messi10.png" />
+    <Resource Include="Images\Messi\Messi11.png" />
+    <Resource Include="Images\Messi\Messi12.png" />
+    <Resource Include="Images\Messi\Messi13.png" />
+    <Resource Include="Images\Messi\Messi14.png" />
+    <Resource Include="Images\Messi\Messi15.png" />
+    <Resource Include="Images\Messi\Messi2.png" />
+    <Resource Include="Images\Messi\Messi3.png" />
+    <Resource Include="Images\Messi\Messi4.png" />
+    <Resource Include="Images\Messi\Messi5.png" />
+    <Resource Include="Images\Messi\Messi6.png" />
+    <Resource Include="Images\Messi\Messi7.png" />
+    <Resource Include="Images\Messi\Messi8.png" />
+    <Resource Include="Images\Messi\Messi9.png" />
+    <Resource Include="Images\Ledger\Ledger0.png" />
+    <Resource Include="Images\Ledger\Ledger1.png" />
+    <Resource Include="Images\Ledger\Ledger10.png" />
+    <Resource Include="Images\Ledger\Ledger11.png" />
+    <Resource Include="Images\Ledger\Ledger12.png" />
+    <Resource Include="Images\Ledger\Ledger13.png" />
+    <Resource Include="Images\Ledger\Ledger14.png" />
+    <Resource Include="Images\Ledger\Ledger15.png" />
+    <Resource Include="Images\Ledger\Ledger2.png" />
+    <Resource Include="Images\Ledger\Ledger3.png" />
+    <Resource Include="Images\Ledger\Ledger4.png" />
+    <Resource Include="Images\Ledger\Ledger5.png" />
+    <Resource Include="Images\Ledger\Ledger6.png" />
+    <Resource Include="Images\Ledger\Ledger7.png" />
+    <Resource Include="Images\Ledger\Ledger8.png" />
+    <Resource Include="Images\Ledger\Ledger9.png" />
+    <Resource Include="Images\Jolie\Jolie0.png" />
+    <Resource Include="Images\Jolie\Jolie1.png" />
+    <Resource Include="Images\Jolie\Jolie10.png" />
+    <Resource Include="Images\Jolie\Jolie11.png" />
+    <Resource Include="Images\Jolie\Jolie12.png" />
+    <Resource Include="Images\Jolie\Jolie13.png" />
+    <Resource Include="Images\Jolie\Jolie14.png" />
+    <Resource Include="Images\Jolie\Jolie15.png" />
+    <Resource Include="Images\Jolie\Jolie2.png" />
+    <Resource Include="Images\Jolie\Jolie3.png" />
+    <Resource Include="Images\Jolie\Jolie4.png" />
+    <Resource Include="Images\Jolie\Jolie5.png" />
+    <Resource Include="Images\Jolie\Jolie6.png" />
+    <Resource Include="Images\Jolie\Jolie7.png" />
+    <Resource Include="Images\Jolie\Jolie8.png" />
+    <Resource Include="Images\Jolie\Jolie9.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

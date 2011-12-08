@@ -1,0 +1,56 @@
+﻿<Window x:Class="MemoryGameKinect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:Coding4Fun.Kinect.Wpf.Controls;assembly=Coding4Fun.Kinect.Wpf"
+        Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized" Loaded="Window_Loaded" Closed="Window_Closed" Activated="Window_Activated" Deactivated="Window_Deactivated" WindowStyle="None">
+
+    <Canvas Name="Canvas">
+        <Image Source="/MemoryGameKinect;component/Images/menu.jpg" Stretch="Fill" StretchDirection="Both" Canvas.Left="0" Canvas.Top="0" Height="1080" Width="1920" />
+        <Grid Height="1080" Width="1920">
+            <Grid Name="buttonGrid" Canvas.Left="622" Canvas.Top="254" Margin="798,287,588,203">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="127*" />
+                    <RowDefinition Height="127*" />
+                    <RowDefinition Height="127*" />
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="0" >
+                    <Controls:HoverButton ImageSource="/MemoryGameKinect;component/Images/singlePlayer.png" ActiveImageSource="/MemoryGameKinect;component/Images/singlePlayer.png" Margin="10,10,10,10" MaxHeight="100" MaxWidth="450" TimeInterval="1500" Name="newButton" Click="newGame_Click" Visibility="Hidden"/>
+                </Viewbox>
+                <Viewbox Grid.Row="1">
+                    <Controls:HoverButton ImageSource="/MemoryGameKinect;component/Images/multiplayer.png" ActiveImageSource="/MemoryGameKinect;component/Images/multiplayer.png" Margin="10,10,10,10" MaxHeight="100" MaxWidth="450" TimeInterval="1500" Name="multiButton" Click="multiGame_Click" Visibility="Hidden"/>
+                </Viewbox>
+                <Viewbox Grid.Row="1">
+                    <Controls:HoverButton Name="logoButton" ImageSource="/MemoryGameKinect;component/Images/logo.png" ActiveImageSource="/MemoryGameKinect;component/Images/logo.png" TimeInterval="1500" HorizontalAlignment="Stretch" Margin="4,6,4,6" VerticalAlignment="Stretch" Click="logoButton_Click" MaxHeight="100" MaxWidth="450" Width="272" />
+                </Viewbox>
+                <Viewbox Grid.Row="2" >
+                    <Controls:HoverButton ImageSource="/MemoryGameKinect;component/Images/quit.png" ActiveImageSource="/MemoryGameKinect;component/Images/quit.png" TimeInterval="1500" Margin="10,10,10,10" Name="quitButton" MaxHeight="100" MaxWidth="450" Click="quitButton_Click" Visibility="Hidden"/>
+                </Viewbox>
+            </Grid>
+            <Viewbox Margin="111,580,1306,39">
+                <Controls:HoverButton ImageSource="/MemoryGameKinect;component/Images/screen.png" ActiveImageSource="/MemoryGameKinect;component/Images/screen.png" Margin="10,10,10,10" TimeInterval="1500" Name="cardButton" Click="card_Click" Visibility="Visible" />
+            </Viewbox>
+
+            <Viewbox Margin="534,6,758,901">
+                <Controls:HoverButton ImageSource="/MemoryGameKinect;component/Images/screen.png" ActiveImageSource="/MemoryGameKinect;component/Images/screen.png" Margin="10,10,10,10" TimeInterval="1500" Name="highScoresButton" Click="highScoresButton_Click" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="461" Width="1174" />
+            </Viewbox>
+        </Grid>
+
+        <Ellipse Canvas.Left="50" Canvas.Top="0" Height="100" Name="rightEllipse" Width="100" Margin="90,71,201,71">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="/MemoryGameKinect;component/Images/righthand.png"/>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse Canvas.Left="100" Canvas.Top="0" Height="100" Name="leftEllipse" Width="100">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="/MemoryGameKinect;component/Images/lefthand.png"/>
+            </Ellipse.Fill>
+        </Ellipse>
+    </Canvas>
+</Window>
+
+
+
+
+
+
